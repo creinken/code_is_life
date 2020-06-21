@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
     # relationships
     has_many :projects
-    has_many :comments
 
     # instance methods
     def get_projects_from_github
