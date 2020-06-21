@@ -12,5 +12,9 @@
     <%= f.label :url %>
     <%= f.text_field :url %><br>
 
+    <% if current_user.provider == "github" %>
+        <%= select("project", "imported", options_for_select(@github_projects.collect {|proj| [proj[:name], proj[:github_id]] }), { include_blank: true }) %>
+    <% end %>
+
     <%= f.submit %>
 <% end %>

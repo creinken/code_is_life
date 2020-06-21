@@ -9,12 +9,14 @@ class User < ApplicationRecord
     has_many :projects
 
     # instance methods
-    def get_projects_from_github(url)
-        response = Excon.get(url)
+    def get_projects_from_github
+        if self.provider == "github"
+            @response = Excon.get(self.github_repos)
+        end
 
-        return nil if response.status != 200
+        return nil if @response.status != 200
 
-        JSON.parse(response.body)
+        JSON.parse(@response.body)
     end
 
     # class methods
@@ -24,6 +26,7 @@ class User < ApplicationRecord
             user.name = auth.info.name
             user.uid = auth.uid
             user.email = auth.info.email
+            user.github_repos = auth.extra.raw_info.repos_url
             user.password = Devise.friendly_token[0,20]
         end
     end
