@@ -1,0 +1,7 @@
+<h1><%= @project.name %></h1>
+<h3>By: <%= @project.user.name %></h3>
+
+<p>Written in: <%= @project.language %></p>
+<p>Repo URL: <%= link_to @project.url %></p>
+
+<p><%= @project.description %></p>
