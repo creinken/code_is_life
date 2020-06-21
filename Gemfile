@@ -26,6 +26,7 @@ gem 'omniauth'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'excon'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
