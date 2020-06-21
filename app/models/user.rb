@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable
 
+
     # relationships
     has_many :projects
     has_many :comments

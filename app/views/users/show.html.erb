@@ -1,7 +1,7 @@
 <h1>Welcome to <%= @user.name %>'s Projects</h1>
 
 
-<%= render partial: "projects/projects", locals: {project_user: @user} %>
+<%= render partial: "projects/projects", locals: {projects: @projects} %>
 
 <% if @user == current_user %>
     <%= link_to 'New Project', new_project_path %>
