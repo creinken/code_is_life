@@ -1,0 +1,15 @@
+
+<<table>
+    <tr>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Description</th>
+    </tr>
+    <% project_user.projects.each do |proj| %>
+        <tr>
+            <td><%= proj.name %></td>
+            <td><%= proj.language %></td>
+            <td><%= proj.description %></td>
+        </tr>
+    <% end %>
+</table>

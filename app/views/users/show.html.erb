@@ -1,1 +1,3 @@
-<h1>Welcome <%= @user.name %>!</h1>
+<h1>Welcome to <%= @user.name %>'s Projects</h1>
+
+<%= render partial: "projects/projects", locals: {project_user: @user} %>
