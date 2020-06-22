@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
         # binding.pry
-        @projects = @user.projects.mine(@user)
+        @projects = @user.projects
     end
 
     private

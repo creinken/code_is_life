@@ -9,3 +9,6 @@
 <% end %>
 
 <p><%= @project.description %></p>
+
+<%# render partial: "comments/comments", locals: {comments: @project.comments} %>
+<%= render partial: "comments/form", locals: {comment: @project.comments.new} %>

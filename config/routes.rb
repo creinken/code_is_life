@@ -3,6 +3,7 @@ Rails.application.routes.draw do
         omniauth_callbacks: 'callbacks' }
     resources :users, only: [:index, :show]
     resources :projects
+    resources :comments, only: [:create, :destroy]
     root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
