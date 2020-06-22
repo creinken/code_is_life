@@ -2,5 +2,5 @@
     <%= f.hidden_field :commenter_id, value: current_user.commenter.id %>
     <%= f.hidden_field :project_id, value: params[:id] %>
     <%= f.text_area :content %>
-    <%= f.submit %>
+    <%= f.submit 'Post Comment' %>
 <% end %>

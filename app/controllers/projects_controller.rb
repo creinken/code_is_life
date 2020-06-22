@@ -23,7 +23,6 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        binding.pry
         @user = User.find_by(id: params[:project][:user_id])
         if !params[:project][:name].empty? && !params[:project][:language].empty? && !params[:project][:url].empty?
             @project = @user.projects.build(new_project_params(:user_id, :name, :language, :description, :url))
