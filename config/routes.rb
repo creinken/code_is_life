@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     resources :projects
     resources :comments, only: [:create, :destroy]
+    get '/users/:user_id/commented', to: 'users#show_commented'
     root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

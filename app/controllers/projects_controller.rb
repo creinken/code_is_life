@@ -50,7 +50,17 @@ class ProjectsController < ApplicationController
 
     def set_project
         # binding.pry
-        @project = Project.find_by(id: params[:id])
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            if user.nil?
+                redirect_to users_path, alert: "User not found."
+            else
+                @project = user.projects.find_by(id: params[:id])
+                redirect_to user_projects_path(user), alert: "Project not found." if @project.nil?
+            end
+        else
+            @project = Project.find(params[:id])
+        end
     end
 
     def new_project_params(*args)
