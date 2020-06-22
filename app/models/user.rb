@@ -5,6 +5,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable
 
+    validates :name, presence: true
+
 
     # relationships
     has_many :projects

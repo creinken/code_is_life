@@ -5,4 +5,6 @@ class Project < ApplicationRecord
     # scope :imported,    -> { where(imported: true) }
     scope :ruby,   -> { where(language: "Ruby") }
 
+    validates :name, presence: true
+
 end

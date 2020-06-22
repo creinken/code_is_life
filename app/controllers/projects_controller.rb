@@ -17,10 +17,7 @@ class ProjectsController < ApplicationController
 
     def create
         @user = User.find_by(id: params[:project][:user_id])
-        if !params[:project][:name].empty? && !params[:project][:language].empty? && !params[:project][:url].empty?
-            @project = @user.projects.build(new_project_params(:user_id, :name, :language, :description, :url))
-        end
-
+        @project = @user.projects.build(new_project_params(:user_id, :name, :language, :description, :url))
         if @project.save
             redirect_to project_path(@project)
         else
@@ -37,8 +34,11 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        @project.update(update_project_params)
-        redirect_to project_path(@project)
+        if @project.update(update_project_params)
+            redirect_to project_path(@project)
+        else
+            render :edit
+        end
     end
 
     def destroy
