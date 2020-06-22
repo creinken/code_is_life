@@ -5,7 +5,7 @@
 <p>Repo URL: <%= link_to @project.url %></p>
 
 <% if current_user == @project.user %>
-    <%= button_to "Delete", project_path(@project), method: :delete %>
+    <%= button_to "Delete", user_project_path(@project), method: :delete %>
 <% end %>
 
 <p><%= @project.description %></p>
