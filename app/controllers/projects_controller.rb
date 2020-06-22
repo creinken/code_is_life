@@ -2,24 +2,17 @@ class ProjectsController < ApplicationController
     before_action :set_project, only: [:show, :edit, :update, :destroy]
 
     def index
-        @projects = Project.all
+        if params[:user_id]
+            @projects = User.find(params[:user_id]).posts
+        else
+            @projects = Project.all
+        end
     end
 
     def new
-        if current_user.provider == "github"
-            @project = Project.new
-            @github_projects = []
-            @github_projects = current_user.get_projects_from_github.collect {|proj|   {name: proj["name"],
-                                                                                        url: proj["html_url"],
-                                                                                        description: proj["description"],
-                                                                                        language: proj["language"],
-                                                                                        github_id: proj["id"]}
-                                                                                    }
-            render :new_with_github
-        else
-            @project = Project.new
-            render :new
-        end
+        # binding.pry
+        @user = User.find_by(id: params[:user_id])
+        @project = Project.new(user_id: params[:user_id])
     end
 
     def create
@@ -56,6 +49,7 @@ class ProjectsController < ApplicationController
     private
 
     def set_project
+        # binding.pry
         @project = Project.find_by(id: params[:id])
     end
 

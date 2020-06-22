@@ -4,5 +4,5 @@
 <%= render partial: "projects/projects", locals: {projects: @projects} %>
 
 <% if @user == current_user %>
-    <%= link_to 'New Project', new_project_path %>
+    <%= link_to 'New Project', new_user_project_path(@user) %>
 <% end %>

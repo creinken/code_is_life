@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
     devise_for :users, path_prefix: 'my', controllers: { registrations: 'registrations',
         omniauth_callbacks: 'callbacks' }
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+        resources :projects
+    end
     resources :projects
     resources :comments, only: [:create, :destroy]
     root 'users#index'
