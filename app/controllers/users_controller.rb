@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        binding.pry
+        # binding.pry
         @projects = @user.projects
     end
 

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         if !params[:comment][:content].empty?
             @commenter.comments.create(comment_params)
         end
-        redirect_to user_project_path(@project)
+        redirect_to user_project_path(current_user,@project)
     end
 
     def destroy
