@@ -1,5 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
+    def create
+        super
+        if resource.persisted?
+            resource.create_commenter
+        end
+    end
 
     private
 
