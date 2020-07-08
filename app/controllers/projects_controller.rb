@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
     end
 
     def new
-        # binding.pry
         @user = User.find_by(id: params[:user_id])
         @project = Project.new(user_id: params[:user_id])
     end
@@ -49,7 +48,6 @@ class ProjectsController < ApplicationController
     private
 
     def set_project
-        # binding.pry
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             if user.nil?

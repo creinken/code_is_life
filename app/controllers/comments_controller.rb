@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
     def create
-        binding.pry
         @commenter = Commenter.find_by(id: params[:comment][:commenter_id])
         @project = Project.find_by(id: params[:comment][:project_id])
         if !params[:comment][:content].empty?

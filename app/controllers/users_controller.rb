@@ -6,12 +6,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        # binding.pry
         @projects = @user.projects
     end
 
     def show_commented
-        # binding.pry
         @user = User.find_by(id: params[:user_id])
         @projects = @user.projects.ruby
         render :show
