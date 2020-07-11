@@ -11,7 +11,7 @@
             <td><%= proj.name %></td>
             <td><%= proj.language %></td>
             <td><%= proj.description %></td>
-            <td><%= edit_project(proj) %> <%= link_to('View', user_project_path(params[:id],proj)) %></td>
+            <td><%= edit_project(proj) %> <%= link_to('View', project_path(proj)) %></td>
         </tr>
     <% end %>
 </table>
