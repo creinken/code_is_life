@@ -9,4 +9,11 @@
 <p><%= @project.description %></p>
 
 <%= render partial: "comments/comments", locals: {comments: @project.comments} %>
-<%= render partial: "comments/form", locals: {comment: @project.comments.new} %>
+<%#= render partial: "comments/form" %>
+
+<%= form_for ([@project, @project.comments.new]) do |f| %>
+    <%= f.hidden_field :commenter_id, value: current_user.commenter.id %>
+    <%= f.hidden_field :project_id, value: params[:id] %>
+    <%= f.text_area :content %>
+    <%= f.submit 'Post Comment' %>
+<% end %>
