@@ -4,9 +4,7 @@
 <p>Written in: <%= @project.language %></p>
 <p>Repo URL: <%= link_to @project.url %></p>
 
-<% if current_user == @project.user %>
-    <%= button_to "Delete", project_path(@project), method: :delete %>
-<% end %>
+<%= deleteable?(@project) %>
 
 <p><%= @project.description %></p>
 

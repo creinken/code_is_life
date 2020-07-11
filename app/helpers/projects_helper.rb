@@ -6,4 +6,10 @@ module ProjectsHelper
             end
         end
     end
+
+    def deleteable?(proj)
+        if current_user == proj.user
+            button_to("Delete", project_path(proj), method: :delete)
+        end
+    end
 end
