@@ -5,6 +5,11 @@ class ProjectsController < ApplicationController
         @projects = Project.all
     end
 
+    def show_ruby
+        @projects = Project.ruby
+        render 'projects/index.html.erb'
+    end
+
     def new
         @project = Project.new(user_id: current_user)
     end
@@ -39,10 +44,6 @@ class ProjectsController < ApplicationController
         redirect_to user_path(current_user)
     end
 
-    def show_ruby
-        @projects = Project.all.ruby
-        render :show
-    end
 
     private
 
