@@ -1,9 +1,7 @@
 <h1>Welcome to <%= @user.name %>'s Projects</h1>
 
-
-<%= link_to 'Ruby only', "/users/#{@user.id}/commented" %>
-<%= render partial: "projects/projects", locals: {projects: @projects} %>
+<%= render partial: "projects/projects", locals: {projects: @user.projects} %>
 
 <% if @user == current_user %>
-    <%= link_to 'New Project', new_user_project_path(@user) %>
+    <%= link_to 'New Project', new_project_path %>
 <% end %>
