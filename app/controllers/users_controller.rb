@@ -8,12 +8,7 @@ class UsersController < ApplicationController
     def show
         @projects = @user.projects
     end
-
-    def show_commented
-        @user = User.find_by(id: params[:user_id])
-        @projects = @user.projects.ruby
-        render :show
-    end
+    
 
     private
 
