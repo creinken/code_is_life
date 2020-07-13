@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     devise_for :users, path_prefix: 'my', controllers: { registrations: 'registrations',
         omniauth_callbacks: 'callbacks' }
     resources :users, only: [:index, :show]
-    get '/projects/ruby', to: 'projects#show_ruby'
+    get '/projects/lang', to: 'projects#show_lang'
     resources :projects do
         resources :comments, only: [:index, :new, :create, :destroy]
     end

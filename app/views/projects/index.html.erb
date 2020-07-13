@@ -1,2 +1,6 @@
-<%= link_to 'Ruby only projects', projects_ruby_path %>
+<%# <%= link_to 'Ruby only projects', projects_ruby_path %>
+<%= form_with(url: projects_lang_path, method: "get") do %>
+    <%= select("project", "language", Project.get_uniq_langs.collect { |lang| [lang, lang] } ) %>
+    <%= submit_tag "Submit" %>
+<% end %>
 <%= render partial: "projects/projects", locals: {projects: @projects} %>

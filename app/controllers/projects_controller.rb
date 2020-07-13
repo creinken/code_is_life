@@ -5,8 +5,10 @@ class ProjectsController < ApplicationController
         @projects = Project.all
     end
 
-    def show_ruby
-        @projects = Project.ruby
+    def show_lang
+        # binding.pry
+        projects_array = Project.get_lang(params[:project][:language])
+        @projects = Project.relate_to_record(projects_array)
         render 'projects/index.html.erb'
     end
 
